@@ -1,0 +1,25 @@
+
+blockquote {
+	background-color: rgba(0, 0, 0, .12);
+	padding: 8px;
+}
+
+blockquote::before {
+	content: '"';
+}
+
+blockquote::after {
+	content: '"';
+}
+a {
+	color: yellow;
+	text-decoration: none;
+}
+
+a:hover {
+	background-color: aqua;
+}
+
+a:visited {
+	color: yellowgreen;
+}
