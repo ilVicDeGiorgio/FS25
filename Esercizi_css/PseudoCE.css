@@ -1,4 +1,14 @@
 
+
+p:first-of-type::first-letter{
+    float: left;
+    color: darkred;
+    border: 3px ridge darkgoldenrod;
+    padding: 16px;
+    background-color: gold;
+    margin: 8px;
+}
+
 blockquote {
 	background-color: rgba(0, 0, 0, .12);
 	padding: 8px;
@@ -17,9 +27,9 @@ a {
 }
 
 a:hover {
-	background-color: aqua;
+	color: yellowgreen;
 }
 
 a:visited {
-	color: yellowgreen;
+	color: purple;
 }
