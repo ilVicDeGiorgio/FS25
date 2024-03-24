@@ -1,0 +1,36 @@
+.card {
+    max-width: 19em;
+    background-color: #fff;
+    border: 1px solid rgb(175, 174, 174);
+    border-radius: 8px;
+    margin: 0 auto;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: auto;
+  }
+  
+  .card-content {
+    padding: 16px;
+  }
+  
+  .card-title {
+    margin-top: 0;
+    font-size: 24px;
+  }
+  
+  .card-text {
+    color: black;
+  }
+  
+  .content{
+    padding: 10px;
+  }
+
+  .card-button {
+    display: inline-block;
+    color: #007bff;
+    padding: 8px 16px;
+  }
+  
