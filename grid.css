@@ -1,0 +1,107 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container-principale{
+    margin: 20px;
+    padding: 10px;
+}
+
+.container-calcolatrice{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 50vw;
+}
+
+.risultato{
+    grid-column: 1/5;
+    grid-row: 1 ;
+    text-align: right;
+    background-color: grey;
+    padding: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.addizione{
+    grid-column: 1/2;
+}
+
+.sottrazione{
+    grid-column: 2/3;
+}
+
+.moltiplicazione{
+    grid-column: 3/4;
+}
+
+.operatore-uguale{
+    display: flex;
+    grid-column: 4/4;
+    grid-row: 3/7;
+    background-color: chocolate;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+    border-bottom-right-radius: 10px;
+}
+
+.operatori{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.5em;
+    width: 100%;
+    background-color: rgb(207, 205, 205);
+    border: 1px solid grey;
+    border-top: none;
+}
+
+.numero{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid grey;
+    background-color: rgb(207, 205, 205);
+    height: 2.5em;
+    width: 100%;
+}
+
+.num7{
+    grid-column: 1/2;
+    grid-row: 3;
+}
+
+.num8{
+    grid-column: 2/3;
+    grid-row: 3 ;
+}
+
+.num9{
+    grid-column: 3/4;
+    grid-row: 3;
+}
+
+.num0{
+    border-bottom-left-radius: 10px;
+}
+
+.punto{
+    text-align: center;
+    border: 1px solid grey;
+    padding-top: 7px;
+    background-color: rgb(207, 205, 205);
+    height: 2.5em;
+    width: 100%;
+}
+
+.ac{
+    text-align: center;
+    border: 1px solid grey;
+    padding-top: 7px;
+    background-color: rgb(207, 205, 205);
+    height: 2.5em;
+    width: 100%;
+}
