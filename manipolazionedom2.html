@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercizio manipolazione dom 2</title>
+  </head>
+  <body>
+    <div id="container">
+      <form id="myForm">
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+
+    <script>
+      const form = document.getElementById("myForm");
+
+      form.addEventListener("submit", (event) => {
+        //Questo event.preventDefault() fa si che il form non venga inviato e che possiamo continuare a vedere
+        //l'oggetto in formato Json in console. Ho comunque bisogno di chiarimenti a riguardo.
+        event.preventDefault();
+
+        const firstName = document.getElementById("firstName");
+        const lastName = document.getElementById("lastName");
+        const age = document.getElementById("age");
+
+        const firstNameValue = firstName.value;
+        const lastNameValue = lastName.value;
+        const ageValue = age.value;
+
+        const person = {
+          firstName: firstNameValue,
+          lastName: lastNameValue,
+          age: ageValue,
+        };
+
+        const personJSON = JSON.stringify(person);
+
+        form.setAttribute("data-user", personJSON);
+
+        console.log(
+          "Oggetto Person in formato JSON:",
+          form.getAttribute("data-user")
+        );
+      });
+    </script>
+  </body>
+</html>
