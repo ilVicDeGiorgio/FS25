@@ -50,7 +50,8 @@
       const printedForm = document.querySelector(".printedform");
       const titleName = document.querySelector(".title-name");
 
-      const savedData = JSON.parse(localStorage.getItem("formData"));
+      // Recupera i dati salvati nel sessionStorage e visualizzali se presenti
+      const savedData = JSON.parse(sessionStorage.getItem("formData"));
       if (savedData) {
         emailInput.value = savedData.email;
         firstnameInput.value = savedData.firstname;
@@ -59,17 +60,19 @@
         titleName.textContent = savedData.firstname;
       }
 
+      // Funzione per salvare i dati nel sessionStorage
       function saveFormData() {
         const formData = {
           email: emailInput.value,
           firstname: firstnameInput.value,
           lastname: lastnameInput.value,
         };
-        localStorage.setItem("formData", JSON.stringify(formData));
+        sessionStorage.setItem("formData", JSON.stringify(formData));
         printedForm.textContent = `Email: ${formData.email}, Name: ${formData.firstname}, Surname: ${formData.lastname}`;
         titleName.textContent = formData.firstname;
       }
 
+      // Aggiungi un listener per salvare i dati quando viene cliccato il pulsante
       formButton.addEventListener("click", saveFormData);
     </script>
   </body>
