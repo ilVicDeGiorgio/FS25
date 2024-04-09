@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Carta de "Il Signore degli anelli"</title>
+  </head>
+  <body>
+    <div id="cardInfo">
+      <h2>Nome del personaggio:</h2>
+      <p id="characterName"></p>
+      <h2>Immagine del personaggio:</h2>
+      <img id="characterImage" src="" alt="Immagine del personaggio" />
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const apiUrl = "https://ringsdb.com/api/public/cards/";
+        const cardId = 1; // Modifica questo valore con l'ID della carta desiderata
+
+        fetch(apiUrl + cardId)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error("Errore nella richiesta API");
+            }
+            return response.json();
+          })
+          .then((data) => {
+            // Ottieni il nome del personaggio
+            // const characterName = data.name;
+
+            // Ottieni l'URL dell'immagine del personaggio (assicurati di avere il nome del dominio)
+            const imageUrl = data.imagesrc;
+
+            // Aggiorna il contenuto HTML con il nome del personaggio
+            document.getElementById("characterName").innerText = data.name;
+
+            // Aggiorna l'attributo src dell'immagine con l'URL dell'immagine del personaggio
+            document.getElementById("characterImage").src = imageUrl;
+          })
+          .catch((error) => {
+            console.error("Si è verificato un errore:", error);
+          });
+      });
+    </script>
+  </body>
+</html>
