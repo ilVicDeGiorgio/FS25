@@ -14,34 +14,28 @@
     </div>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const apiUrl = "https://ringsdb.com/api/public/cards/";
-        const cardId = 1; // Modifica questo valore con l'ID della carta desiderata
+      async function myFunc() {
+        try {
+          const response = await fetch("https://ringsdb.com/api/public/cards/");
+          const data = await response.json();
+          const card = data[0];
+          console.log(card);
+        } catch (error) {
+          console.log(error);
+        }
+      }
 
-        fetch(apiUrl + cardId)
-          .then((response) => {
-            if (!response.ok) {
-              throw new Error("Errore nella richiesta API");
-            }
-            return response.json();
-          })
-          .then((data) => {
-            // Ottieni il nome del personaggio
-            // const characterName = data.name;
+      async function displayCardInfo() {
+        const card = await myFunc();
+        const characterName = document.getElementById("characterName");
+        const characterImage = document.getElementById("characterImage");
 
-            // Ottieni l'URL dell'immagine del personaggio (assicurati di avere il nome del dominio)
-            const imageUrl = data.imagesrc;
+        characterName.textContent = card.name;
 
-            // Aggiorna il contenuto HTML con il nome del personaggio
-            document.getElementById("characterName").innerText = data.name;
+        characterImage.src = card.imagesrc;
+      }
 
-            // Aggiorna l'attributo src dell'immagine con l'URL dell'immagine del personaggio
-            document.getElementById("characterImage").src = imageUrl;
-          })
-          .catch((error) => {
-            console.error("Si è verificato un errore:", error);
-          });
-      });
+      displayCardInfo();
     </script>
   </body>
 </html>
